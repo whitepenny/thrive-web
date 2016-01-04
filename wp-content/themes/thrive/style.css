@@ -1427,7 +1427,7 @@ a.red-button:focus, a.red-button:hover, a.red-button:active {
 .home-section-one-logos-inner {
   margin: 0 auto;
   max-width: 820px;
-  min-height: 43px;
+  min-height: 60px;
 }
 .hp-one-logo {
   display: inline-block;

@@ -19,7 +19,7 @@
 			<?php if ( is_front_page() && is_home() ) : ?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="logo-img" src="/wp-content/themes/thrive/img/logo.png" alt="Thrive TRM"></a></h1>
 			<?php else : ?>
-				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="logo-img" src="/wp-content/themes/thrive/img/logo.png" alt="Thrive TRM"></a></div>
+				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img class="logo-img" src="/wp-content/themes/thrive/img/thrive_logo.svg" alt="Thrive TRM"></a></div>
 			<?php endif; ?>
 
 			
