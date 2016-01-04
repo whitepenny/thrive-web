@@ -29,7 +29,7 @@
             </div>
 		</div><!--/section one-->
 
-		<div class="about-section-two clear">
+		<!-- <div class="about-section-two clear">
             <div class="staff-intro">
 				<h2>Leadership Team</h2>
 
@@ -79,8 +79,8 @@
                 <?php endwhile; ?>
 
             <?php endif; ?>
-	        </div><!--End Staff Blocks-->
-	    </div><!--/section two-->
+	        </div>
+	    </div> -->
 
         <?php 
         //vars
@@ -96,7 +96,6 @@
 	    	</div>
 
 	    </div><!--/section three-->
-
 
 	</div><!-- .entry-content -->
 
