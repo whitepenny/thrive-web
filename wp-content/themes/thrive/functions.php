@@ -87,6 +87,11 @@ function thrive_content_width() {
 }
 add_action( 'after_setup_theme', 'thrive_content_width', 0 );
 
+function thrive_excerpt_length( $length ) {
+	return 30;
+}
+add_filter( 'excerpt_length', 'thrive_excerpt_length', 999 );
+
 /**
  * Register widget area.
  *

@@ -40,7 +40,7 @@ function thrive_posted_on() {
 endif;
 
 
-if ( ! function_exists( 'severino_posted_on_single' ) ) :
+if ( ! function_exists( 'thrive_posted_on_single' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
