@@ -92,6 +92,11 @@ function thrive_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'thrive_excerpt_length', 999 );
 
+function thrive_excerpt_more( $more ) {
+	return '';
+}
+add_filter( 'excerpt_more', 'thrive_excerpt_more' );
+
 /**
  * Register widget area.
  *
