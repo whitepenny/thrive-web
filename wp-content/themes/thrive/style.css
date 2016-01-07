@@ -8,6 +8,19 @@ Version: 1.0.0
 Text Domain: thrive
 Tags:
 */
+/*
+CHANGED:
+Add Jetpack, configure
+Custom Fields For Single Post
+Contact Form, add phone input
+style.css
+functions.php
+content-single.php
+content-archive-posts.php
+inc/template-tags.php
+header.php
+Favicon file
+*/
 
 /* ===========================================================
        TABLE OF CONTENTS
@@ -382,7 +395,7 @@ button:active, input[type="button"]:active, input[type="reset"]:active, input[ty
   border-color: #aaa #bbb #bbb;
   box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
 }
-input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], textarea {
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="tel"], textarea {
   border: none;
   border-radius: 0px;
   background-color: #f6f8fc;
@@ -392,10 +405,10 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
   line-height: 31px;
   padding: 9.5px  9.5px 9.5px 18px;
 }
-input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, textarea:focus {
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, textarea:focus {
   color: #111;
 }
-input[type="text"], input[type="email"], input[type="url"], input[type="password"],input[type="search"] {
+input[type="text"], input[type="email"], input[type="url"], input[type="password"],input[type="search"], input[type="tel"] {
   padding: 9.5px  9.5px 9.5px 18px;
 }
 textarea {
@@ -479,6 +492,9 @@ a:focus {
 }
 a:hover, a:active {
 outline: 0;
+}
+.author a {
+  text-decoration: none;
 }
 
 /* ============================================================
@@ -999,8 +1015,27 @@ outline: 0;
 .cat-links a {
   text-decoration: none;
 }
+.single-post-social-top {
+  float: right;
+}
+.sd-content {
+  display: inline-block;
+  margin-left: 20px;
+}
 .single-post .featured-img {
+  max-width: 740px;
+  /*padding-bottom: 24px;*/
+  padding-bottom: 2px;
+}
+.single-post .featured-img + .posted-on {
   padding-bottom: 24px;
+}
+body div.sharedaddy h3.sd-title {
+  font-weight: 500;
+  text-transform: uppercase;
+}
+body div.sharedaddy h3.sd-title::before {
+  border-top: solid 1px transparent;
 }
 .single-post .featured-img img {
   width: auto;
@@ -1058,7 +1093,8 @@ outline: 0;
   margin: 0 0 0 17px;
 }
 .page-template-blog article .entry-meta, .category article .entry-meta, .tag article .entry-meta {
-  margin-top: 40px;
+  /*margin-top: 40px;*/
+  margin-top: 32px;
 }
 .page-template-blog .posted-on, .category .posted-on, .tag .posted-on {
   display: block;
@@ -1076,7 +1112,8 @@ outline: 0;
   font-size: 18px;
   font-weight: 400;
   line-height: 28px;
-  margin-top: 23px;
+  /*margin-top: 23px;*/
+  margin-top: 7px;
   margin-bottom: -8px;
   padding: 0 24px;
   text-transform: uppercase;
@@ -1086,6 +1123,8 @@ outline: 0;
   font-family: Lato, Ubuntu, sans-serif;
   font-size: 16px;
   line-height: 28px;
+  margin-top: 24px; /* New */
+  margin-bottom: 19px; /* New */
   padding: 0 6px;
 }
 .page-template-blog .entry-title a, .category .entry-title a, .tag .entry-title a {
@@ -1100,6 +1139,9 @@ outline: 0;
 }
 .page-template-blog .entry-title a:hover, .category .entry-title a:hover, .tag .entry-title a:hover {
   color: #00c9ff;
+}
+.filed-under {
+  text-transform: uppercase;
 }
 
 /* Blog Pagination
@@ -1748,7 +1790,7 @@ a.red-button:focus, a.red-button:hover, a.red-button:active {
   line-height: 44px;
   margin: 85px 0 38px;
 }
-.get-started-form input[type="text"], .get-started-form input[type="email"], .get-started-form textarea {
+.get-started-form input[type="text"], .get-started-form input[type="email"], .get-started-form input[type="tel"], .get-started-form textarea {
   width: 100%;
 }
 .get-started-form input[type="submit"] {

@@ -92,11 +92,6 @@ function thrive_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'thrive_excerpt_length', 999 );
 
-function thrive_excerpt_more( $more ) {
-	return '';
-}
-add_filter( 'excerpt_more', 'thrive_excerpt_more' );
-
 /**
  * Register widget area.
  *
@@ -180,5 +175,35 @@ function the_field_without_wpautop() {
 	add_filter('acf_the_content', 'wpautop');
 	
 }
+/**
+ * Custom exceprt length
+ *
+ */
+function ld_custom_excerpt_length( $length ) {
+    return 22;
+}
+add_filter( 'excerpt_length', 'ld_custom_excerpt_length', 999 );
 
+/**
+ * Custom exceprt
+ *
+**/
+function new_excerpt_more($more) {
+       global $post;
+	return '';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
+/**
+ * Temp fix for HTTPS and 4.4 srcset grabbing from HTTP
+ * Related to responsive images
+ * New fix coming in later versions of WP, this can be removed later
+ */
+add_filter('wp_get_attachment_image_attributes', function($attr) {
+    if (isset($attr['sizes'])) unset($attr['sizes']);
+    if (isset($attr['srcset'])) unset($attr['srcset']);
+    return $attr;
+}, PHP_INT_MAX);
+add_filter('wp_calculate_image_sizes', '__return_false', PHP_INT_MAX);
+add_filter('wp_calculate_image_srcset', '__return_false', PHP_INT_MAX);
+remove_filter('the_content', 'wp_make_content_images_responsive');
