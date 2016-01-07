@@ -19,7 +19,7 @@
                 <h2 class="entry-title"><a href="<?php echo the_permalink() ?>"><?php the_title(); ?></a></h2>
 		<?php the_excerpt(); ?>
                 <div class="single-cats">
-                        <span class="filed-under">Filed Under: </span><?php thrive_entry_footer(); ?>
+                        <span class="filed-under">Tags: </span><?php thrive_entry_footer(); ?>
                     </div>
 		<?php
 			wp_link_pages( array(
