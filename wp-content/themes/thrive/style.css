@@ -1066,6 +1066,7 @@ body div.sharedaddy h3.sd-title::before {
 }
 .page-template-blog article:nth-of-type(3n+1), .category article:nth-of-type(3n+1), .tag article:nth-of-type(3n+1) {
   margin: 0 17px 0 0;
+  clear: left;
 }
 .page-template-blog article:nth-of-type(3n+2), .category article:nth-of-type(3n+2), .tag article:nth-of-type(3n+2) {
   margin: 0 17px 0 17px;
