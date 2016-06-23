@@ -5,6 +5,41 @@
      </div>
  </div>
 
+<style>
+.callout
+{
+	float:left;
+	width: 280px;
+	margin: 25px 40px 40px -120px;
+}
+/*medium */
+@media only screen and (min-width: 40.063em) { 
+	.callout
+	{
+		margin: 25px 40px 40px -45px;
+	}
+}
+/*small */
+@media only screen and (max-width: 40em) { 
+	.callout
+	{
+		margin: 0px 0px 1.5em 0px;
+		float:none;
+	}
+}
+/*large */
+@media only screen and (min-width: 64.063em) { 
+	.callout
+	{
+		margin: 25px 40px 40px -120px;
+	}
+}
+.entry-content h2
+{
+	clear:none !important;
+}
+
+</style>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
@@ -27,8 +62,36 @@
             </div>
             <div class="posted-on"><span>Posted by <?php the_field('who_wrote_it'); ?></span>
             </div>
-		<?php the_content(); ?>
+            <!-- we need to do our injection here -->
+		<?php 
+
+			$content = apply_filters('the_content',$post->post_content); 
+
+			$resource_image = get_field('resource_image');
+			$resource_url = get_field('resource_url');
+
+			//only do this if there is an image and url
+			if($resource_image != "" && $resource_url != "")
+			{
+				$callout = "<div class='callout'><a href='" . $resource_url . "'><img src='" . $resource_image . "'></a></div>";
+				$pos = strpos($content, '</p>') + 4; // get the position directly after the first closing p tag, add 4 for the count of </p>
+				$content = substr($content, 0, $pos) . $callout . substr($content, $pos);
+			}
+			//the_content(); 
+			//echo $callout;
+			echo $content;
+		?>
 		
+		<?php  
+			$bottom_cta_image = get_field('bottom_cta_image');
+			$bottom_cta_url = get_field('bottom_cta_url');
+			if($bottom_cta_image != "" && $bottom_cta_url != "")
+			{
+				echo "<div class='bottom-cta'><a href='" . $bottom_cta_url . "'><img src='" . $bottom_cta_image . "'></a></div>";
+			}
+		?>
+		
+
 	</div><!-- .entry-content -->
 
 	
