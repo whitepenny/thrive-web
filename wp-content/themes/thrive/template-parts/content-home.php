@@ -268,7 +268,7 @@
 			    <?php if( $hpsixblue): ?>
 			        <p class="blue-text"><?php echo $hpsixblue; ?></p>
 			    <?php endif; ?>
-				<div class="blue-arrow-down"><img src="http://thrivetrm.wpengine.com/wp-content/themes/thrive/svg/arrow_down.svg" alt="arrow pointing down" /></div>
+				<div class="blue-arrow-down"><img src="http://thrivetrm.com/wp-content/themes/thrive/svg/arrow_down.svg" alt="arrow pointing down" /></div>
 			    <?php if( $hpsixdesc): ?>
 			        <p class="hp-six-desc"><?php echo $hpsixdesc; ?></p>
 			    <?php endif; ?>
