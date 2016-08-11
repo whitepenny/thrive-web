@@ -55,7 +55,7 @@ echo $content;   ?></span>
 							<div class="small-12 medium-6 large-10 columns">
 							<h3><?php echo the_sub_field('title'); ?></h3>
 						        <?php echo the_sub_field('description');?>
-						        <a href="<?php echo the_sub_field('link_url');?>" class="alert button radius" target="_blank">Download Resource</a>
+						        <p><a href="<?php echo the_sub_field('link_url');?>" class="alert button radius" target="_blank">Download Resource</a></p>
 					        </div>
 						</div>
 				        
