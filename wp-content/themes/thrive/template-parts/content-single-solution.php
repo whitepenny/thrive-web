@@ -59,6 +59,6 @@
 
     		<?php endwhile; ?>
     	<?php endif; ?>
-
+        <div class="clear single-solution-red-button"><a class="red-button" href="/features/">Explore All Features</a></div>
 	</div><!-- .entry-content -->
 </article><!-- #post-## -->

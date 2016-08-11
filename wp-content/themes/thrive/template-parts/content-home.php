@@ -3,14 +3,16 @@
 	<div class="entry-content">
 
 		<div class="home-section-one clear">
-                     <div class="hp-section-one-gradient"></div>
+           
 			<?php 
 			//vars
+			$hponebgimg = get_field('home_top_background_image');
 			$hponeheadline = get_field('home_section_one_headline');
 			$hponedesc = get_field('home_section_one_description');
-			$hponeimage = get_field('home_section_one_image');
+			
 			?>
 
+			<div class="hp-section-one-gradient" <?php if( $hponebgimg): ?>style="background-image: url(<?php echo $hponebgimg;?>);"<?php endif; ?>></div>
             <div class="home-part-one-text">
             	<?php if( $hponeheadline): ?>
             		<h1><?php echo $hponeheadline; ?></h1>
@@ -18,18 +20,9 @@
             	<?php if( $hponedesc ): ?>
              		<p><?php echo $hponedesc; ?></p>
          		<?php endif; ?>
-                <span><a href="/solutions/" class="red-button ib">See Solutions</a></span>
             </div>
 
-            <?php if( !empty($hponeimage) ):
-				$urlone = $hponeimage['url'];
-                $altone = $hponeimage['alt'];
-                $sizeone = 'full';
-                $thumbone = $hponeimage['sizes'][ $sizeone ];
             
-	    	?>
-            	<div class="home-part-one-image"><img src="<?php echo $urlone; ?>" alt="<?php echo $altone; ?>" /></div>
-            <?php endif; ?>
 		</div>
         
         <div class="home-section-one-logos">
@@ -58,47 +51,50 @@
         </div>
 
 		<div class="home-section-two">
-			<div class="home-section-two-text-block">
-				<?php 
-				//vars
-				$hptwoheadline = get_field('home_section_two_headline');
-				$hptwodesc = get_field('home_section_two_description');
-				?>
-				<?php if( $hptwoheadline): ?>
-            		<h2><?php echo $hptwoheadline; ?></h2>
-        		<?php endif; ?>
-            	<?php if( $hptwodesc ): ?>
-             		<p><?php echo $hptwodesc; ?></p>
-         		<?php endif; ?>
-			</div>
-			<div class="home-section-two-buckets clear">
-				<?php if( have_rows('home_section_two_repeater') ): ?>
-	        	    <?php while( have_rows('home_section_two_repeater') ): the_row(); ?>
+			
+			<?php if( have_rows('home_section_two_repeater') ): ?>
+        	    <?php while( have_rows('home_section_two_repeater') ): the_row(); ?>
 
-		        	    <?php 
-		        	    //vars
-		        	    $hptworptimg = get_sub_field('home_section_two_repeater_image'); 
-		        	    $hptworptheadline = get_sub_field('home_section_two_repeater_headline');
-		        	    $hptworpttext = get_sub_field('home_section_two_repeater_text');
-		        	    $hptworptbtnurl = get_sub_field('home_section_two_button_link');
-		        	    $hptworptbtntext = get_sub_field('home_section_two_button_text');
-		        	    ?>
-		        	    <div class="home-section-two-bucket-block">
-		        	    	<?php if( !empty($hptworptimg) ):
-					    $hptwourl = $hptworptimg['url'];
-			                    $hptwoalt = $hptworptimg['alt'];
-			                    $hptwosize = 'full';
-			                    $hptwothumb = $hptworptimg['sizes'][ $hptwosize ];
+	        	    <?php 
+	        	    //vars
+	        	    $hptworptimg = get_sub_field('home_section_two_repeater_image'); 
+	        	    $hptworptheadline = get_sub_field('home_section_two_repeater_headline');
+	        	    $hptworpttext = get_sub_field('home_section_two_repeater_text');
+	        	    $hptwointegratelogo = get_sub_field('home_section_two_integration_logo');
+	        	    $hptwointegratetext = get_sub_field('home_section_two_integration_text');
+	        	    $hptworptbtnurl = get_sub_field('home_section_two_button_link');
+	        	    $hptworptbtntext = get_sub_field('home_section_two_button_text');
+	        	    ?>
+	        	    <div class="home-section-two-section clear">
+	        	    	<?php if( !empty($hptworptimg) ):
+					    	$hptwourl = $hptworptimg['url'];
+			                $hptwoalt = $hptworptimg['alt'];
+			                $hptwosize = 'full';
+			                $hptwothumb = $hptworptimg['sizes'][ $hptwosize ];
 		                
-				    		?>
-		                    	<img src="<?php echo $hptwourl; ?>" alt="<?php echo $hptwoalt; ?>" />
-		                    <?php endif; ?>
-                            <div class="two-bucket-text-block">
+				    	?>
+	                    	<div class="home-part-two-image"><img src="<?php echo $hptwourl; ?>" alt="<?php echo $hptwoalt; ?>" /></div>
+	                    <?php endif; ?>
+		        	    <div class="home-section-two-text-container">
+		        	    	
+	                        <div class="home-two-text-block">
 			                    <?php if( $hptworptheadline): ?>
 				            		<h3><?php echo $hptworptheadline; ?></h3>
 				        		<?php endif; ?>
 				            	<?php if( $hptworpttext): ?>
 				             		<p><?php echo $hptworpttext; ?></p>
+				         		<?php endif; ?>
+				         		<?php if( !empty($hptwointegratelogo ) ):
+							    	$hptwointurl = $hptwointegratelogo ['url'];
+					                $hptwointalt = $hptwointegratelogo ['alt'];
+					                $hptwointsize = 'full';
+					                $hptwointthumb = $hptwointegratelogo ['sizes'][ $hptwointsize ];
+				                
+						    	?>
+			                    	<div class="home-two-inetgration-logo"><img src="<?php echo $hptwointurl; ?>" alt="<?php echo $hptwointalt; ?>" /></div>
+	                    		<?php endif; ?>
+				         		<?php if( $hptwointegratetext): ?>
+				         			<p class="integrate-text"><?php echo $hptwointegratetext; ?></p>
 				         		<?php endif; ?>
 				         		<?php if( $hptworptbtnurl): ?>
 				             		<a class="red-button" href="<?php echo $hptworptbtnurl; ?>">
@@ -109,13 +105,12 @@
 				         		<?php endif; ?>
 				         	</div>
 		        	    </div>
-                    
-	        	    <?php endwhile; ?>
-	        	<?php endif; ?>
+		        	    <div class="clear"></div>
+                	</div>
+        	    <?php endwhile; ?>
+        	<?php endif; ?>
 
-
-			</div>
-		</div>
+		</div> 
 
 		<div class="home-section-three">
 			<div class="home-section-three-text-block">
@@ -203,7 +198,8 @@
 			</div>
 		</div>
         </div><!--/stats-section-->
-		<div class="home-section-five clear">
+		
+	<!-- <div class="home-section-five clear">
 			<?php 
 			//vars
 			$hpfiveimg = get_field('home_section_five_image');
@@ -248,7 +244,7 @@
 
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<?php 
 		//vars section six

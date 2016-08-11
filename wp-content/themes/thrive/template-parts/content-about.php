@@ -29,9 +29,9 @@
             </div>
 		</div><!--/section one-->
 
-		<!-- <div class="about-section-two clear">
+		<div class="about-section-two clear">
             <div class="staff-intro">
-				<h2>Leadership Team</h2>
+				<h2>Thrive Team</h2>
 
 				<?php $parttwodesc = get_field('about_part_two_description'); 
 				if ($parttwodesc): ?>
@@ -47,6 +47,7 @@
 	                // vars
 	                $staffname = get_sub_field('staff_name');
 					$staffemail = get_sub_field('staff_email');
+					$stafflinkedin = get_sub_field('staff_linkedin');
 					$stafftitle = get_sub_field('staff_title');
 					$staffphoto = get_sub_field('staff_photo'); 
 				?>
@@ -57,7 +58,7 @@
 						$url = $staffphoto['url'];
 	                    $title = $staffphoto['title'];
 	                    $alt = $staffphoto['alt'];
-	                    $size = 'blog-size';
+	                    $size = 'square-size';
 	                    $thumb = $staffphoto['sizes'][ $size ];
 	                
 			    	?>
@@ -67,8 +68,9 @@
 	                        <?php if( $staffname): ?>
 	                        	<span class="staff-name"><?php echo $staffname; ?></span>
 	                    	<?php endif; ?>
-	                        <?php if( $staffemail ): ?>
-	                         	<span class="staff-email"><a href="mailto:<?php echo $staffemail; ?>"><?php echo $staffemail; ?></a></span>
+	                        
+	                     	<?php if( $stafflinkedin ): ?>
+	                         	<span class="staff-email"><a href="<?php echo $stafflinkedin; ?>">LinkedIn</a></span>
 	                     	<?php endif; ?>
 	                     	<?php if( $stafftitle ): ?>
 	                         	<span class="staff-title"><?php echo $stafftitle; ?></span>
@@ -80,7 +82,58 @@
 
             <?php endif; ?>
 	        </div>
-	    </div> -->
+	    </div> 
+
+	    <!-- Advisors -->
+	    <div class="about-section-two about-section-two-advisors clear">
+            <div class="staff-intro">
+				<h2>Advisory Team</h2>
+			</div>
+                
+            <?php if( have_rows('about_part_two_advisory_repeater') ): ?>
+
+	        <div class="our-staff-blocks our-advisors-blocks">
+
+	            <?php while( have_rows('about_part_two_advisory_repeater') ): the_row(); 
+	                // vars
+	                $advisorname = get_sub_field('advisor_name');
+					$advisoremail = get_sub_field('advisor_email');
+					$advisorlinkedin = get_sub_field('advisor_linkedin');
+					$advisortitle = get_sub_field('advisor_title');
+					$advisorphoto = get_sub_field('advisor_photo'); 
+				?>
+
+				
+                    <div class="staff-single-block">
+                    <?php if( !empty($advisorphoto) ):
+						$aurl = $advisorphoto['url'];
+	                    $atitle = $advisorphoto['title'];
+	                    $aalt = $advisorphoto['alt'];
+	                    $asize = 'square-size';
+	                    $athumb = $advisorphoto['sizes'][ $asize ];
+	                
+			    	?>
+                    	<img src="<?php echo $athumb; ?>" alt="<?php echo $aalt; ?>" />
+                    <?php endif; ?>
+                        <div class="about-text-block">
+	                        <?php if( $advisorname): ?>
+	                        	<span class="staff-name"><?php echo $advisorname; ?></span>
+	                    	<?php endif; ?>
+	                        
+	                     	<?php if( $advisorlinkedin ): ?>
+	                         	<span class="staff-email"><a href="<?php echo $advisorlinkedin; ?>">LinkedIn</a></span>
+	                     	<?php endif; ?>
+	                     	<?php if( $advisortitle ): ?>
+	                         	<span class="staff-title"><?php echo $advisortitle; ?></span>
+	                     	<?php endif; ?>
+                        </div>
+                    </div>
+
+                <?php endwhile; ?>
+
+            <?php endif; ?>
+	        </div>
+	    </div> 
 
         <?php 
         //vars

@@ -35,6 +35,7 @@ function thrive_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
         add_image_size( 'blog-size', 690, 448 );
+        add_image_size( 'square-size', 690, 690, true );
         add_image_size( 'archive-size', 720, 444, array('center', 'center') );
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
