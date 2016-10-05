@@ -4689,4 +4689,34 @@ embed, iframe, object {
     width: 42%;
   }
 }
+
+/* ============================================================
+      16 MISCELLANEOUS
+   ============================================================ */
+
+.client-logos ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.client-logos li {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  padding-bottom: 36px;
+}
+
+.client-logos img {
+  max-width: 80%;
+}
+
+
 /*-- \m/ --*/
