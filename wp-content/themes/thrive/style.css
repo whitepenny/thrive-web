@@ -4711,7 +4711,7 @@ embed, iframe, object {
   width: 25%;
   display: flex;
   align-items: center;
-  padding-bottom: 36px;
+  padding-bottom: 50px;
 }
 
 .client-logos img {
