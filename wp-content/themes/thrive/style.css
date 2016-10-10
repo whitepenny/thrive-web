@@ -4693,30 +4693,41 @@ embed, iframe, object {
 /* ============================================================
       16 MISCELLANEOUS
    ============================================================ */
-
 .client-logos ul {
   margin: 0;
   padding: 0;
   list-style: none;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .client-logos li {
-  width: 25%;
-  display: flex;
-  align-items: center;
-  padding-bottom: 50px;
+  max-width: 200px;
+  margin: 0 auto 50px auto;
 }
 
-.client-logos img {
-  max-width: 80%;
+@media (min-width: 881px) {
+  .client-logos ul {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .client-logos li {
+    margin: 0;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    padding-bottom: 50px;
+  }
+
+  .client-logos img {
+    max-width: 80%;
+  }  
 }
+
 
 
 /*-- \m/ --*/
