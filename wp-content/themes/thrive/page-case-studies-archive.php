@@ -18,11 +18,11 @@
 
             
 
-            
+            <div class="cs-archive-inner-wrap">
+                
 
 		       	<?php  $args = array(
-						'post_type' => 'case-study',
-                        'posts_per_page' => -1
+						'post_type' => 'case-study'
 					);
 					$csquery = new WP_Query( $args ); ?>
 				<?php if ( $csquery->have_posts() ) : ?>
