@@ -2962,7 +2962,7 @@ a.red-button:focus, a.red-button:hover, a.red-button:active {
   display: inline-block;
   float: left;
   height: 221px;
-  margin-bottom: 28px;
+  margin-bottom: 28px; /*56px*/
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
@@ -2982,6 +2982,10 @@ a.red-button:focus, a.red-button:hover, a.red-button:active {
   -o-transition: all .3s ease;
   transition: all .3s ease;
 }
+.page-template-page-case-studies-archive .csa-bounding-box {
+  display: block;
+  height: 100%;
+}
 .page-template-page-case-studies-archive article a:focus, .page-template-page-case-studies-archive article a:hover {
   background-color: #f0f4f9;
 }
@@ -2989,11 +2993,27 @@ a.red-button:focus, a.red-button:hover, a.red-button:active {
   margin: 0 auto;
   max-width: 191px;
   position: relative;
+  text-align: center;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 191px;
+}
+
+.csa-readmore {
+  bottom: 19px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.page-template-page-case-studies-archive article .csa-readmore a:focus,
+.page-template-page-case-studies-archive article .csa-readmore a:hover {
+ background-color: transparent;
+}
+.page-template-page-case-studies-archive article.csa-linked-article {
+  margin-bottom: 56px;
+  position: relative;
 }
 
 /* ============================================================
