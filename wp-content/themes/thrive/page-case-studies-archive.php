@@ -18,33 +18,11 @@
 
             
 
-            <div class="cs-archive-inner-wrap">
-                <div class="client-logos">
-                <?php if( have_rows('client_logos') ): ?>
-
-                <ul>
-
-                <?php while( have_rows('client_logos') ): the_row(); 
-
-                    $image = get_sub_field('logo');
-
-                    ?>
-
-                    <li>
-
-                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
-
-                    </li>
-
-                <?php endwhile; ?>
-
-                </ul>
-
-                <?php endif; ?>            
-            </div>
+            
 
 		       	<?php  $args = array(
-						'post_type' => 'case-study'
+						'post_type' => 'case-study',
+                        'posts_per_page' => -1
 					);
 					$csquery = new WP_Query( $args ); ?>
 				<?php if ( $csquery->have_posts() ) : ?>
