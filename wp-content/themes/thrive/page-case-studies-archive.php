@@ -22,7 +22,8 @@
                 
 
 		       	<?php  $args = array(
-						'post_type' => 'case-study'
+						'post_type' => 'case-study',
+                        'posts_per_page' => -1
 					);
 					$csquery = new WP_Query( $args ); ?>
 				<?php if ( $csquery->have_posts() ) : ?>
