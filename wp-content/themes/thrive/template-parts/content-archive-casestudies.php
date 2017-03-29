@@ -1,3 +1,12 @@
+<?php $brandlogo = get_field('brand_logo');  ?>
+<?php 
+if( !empty($brandlogo) ) {
+          $urlbrand = $brandlogo['url'];
+          $altbrand = $brandlogo['alt'];
+          $sizebrand = 'blog_size';
+          $thumbbrand = $brandlogo['sizes'][ $sizebrand ];
+       }?>
+       
 <?php if( get_field('link_from_archive_page') )
     {
 ?>
@@ -6,9 +15,9 @@
             <div class="entry-content">
            
                 <div class="csa-featured-img">
-                    <?php if ( has_post_thumbnail() ) {
-                        the_post_thumbnail('blog-size');
-                    }  ?>
+                    <?php if ( !empty($brandlogo) ): ?>
+                        <img src="<?php echo  $urlbrand; ?>" alt="<?php echo $altbrand; ?>" />
+                    <?php endif; ?>
                    
                 </div>
       
@@ -26,10 +35,9 @@
           <div class="entry-content">
                
               <div class="csa-featured-img">
-                  <?php if ( has_post_thumbnail() ) {
-                  the_post_thumbnail('blog-size');
-                  }  ?>
-                       
+                  <?php if ( !empty($brandlogo) ): ?>
+                        <img src="<?php echo  $urlbrand; ?>" alt="<?php echo $altbrand; ?>" />
+                    <?php endif; ?>                       
               </div>
           
           </div><!-- .entry-content -->
